@@ -11,7 +11,7 @@ class Client extends Model {
   declare cuit: string;
 
   @Column({
-    type: DataType.STRING(100),
+    type: DataType.STRING(100), 
   })
   declare name: string;
 

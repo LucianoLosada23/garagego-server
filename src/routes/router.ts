@@ -5,6 +5,8 @@ import serviceTypeRoutes from "./serviceTypeRoutes";
 import serviceTypeServiceRoutes from "./serviceTypeServiceRoutes";
 import servicesRoutes from "./servicesRoutes";
 import replacementRoutes from "./replacementRoutes";
+import messageWhatsappRoutes from "./messageWhatsappRoutes";
+import appointmentsRoutes from "./appointmentsRoutes";
 
 const router = Router();
 
@@ -24,4 +26,11 @@ router.use("/typeService", serviceTypeRoutes);
 router.use("/serviceTypeService", serviceTypeServiceRoutes);
 
 router.use("/replacements", replacementRoutes)
+
+// ruta de citas
+router.use("/appointments" , appointmentsRoutes)
+
+
+//ruta para whatsapp
+router.use("/whatsapp", messageWhatsappRoutes)
 export default router;
