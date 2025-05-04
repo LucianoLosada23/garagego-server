@@ -1,4 +1,4 @@
-import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { Column, DataType, Default, HasMany, Model, Table } from "sequelize-typescript";
 import Client from "./Client.model";
 import Vehiculo from "./Vehicle.model";
 import Servicio from "./Service.model";
@@ -39,6 +39,7 @@ class User extends Model{
     })
     declare phone: string;
 
+    @Default(true)
     @Column({
         type: DataType.BOOLEAN(),
         allowNull: false,
