@@ -10,7 +10,7 @@ export const getVehicle = async (req: Request, res: Response) => {
       include: [
         {
           model: Client,
-          attributes: ['name', 'lastname'], // Solo incluye nombre y apellido
+          attributes: ['name', 'lastname' , 'cuit'], // Solo incluye nombre y apellido
         },
       ],
     });
