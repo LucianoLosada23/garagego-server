@@ -10,9 +10,18 @@ import {
 import Vehicle from './Vehicle.model';
 import TipoServicio from './ServiceType.model';
 import AppointmentTipoServicio from './AppointmentTipoServicio.model';
+import User from './User.model';
 
 @Table
 class Appointment extends Model {
+  
+  @ForeignKey(() => User)
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  declare userId: number;
+  
   @ForeignKey(() => Vehicle)
   @Column({
     type: DataType.INTEGER,
@@ -37,6 +46,9 @@ class Appointment extends Model {
     allowNull: false,
   })
   declare status: string;
+
+  @BelongsTo(() => User)
+  declare user: User;
 
   @BelongsTo(() => Vehicle)
   vehicle!: Vehicle;
