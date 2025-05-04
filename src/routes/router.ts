@@ -7,6 +7,7 @@ import servicesRoutes from "./servicesRoutes";
 import replacementRoutes from "./replacementRoutes";
 import messageWhatsappRoutes from "./messageWhatsappRoutes";
 import appointmentsRoutes from "./appointmentsRoutes";
+import userRoutes from "./userRoutes";
 
 const router = Router();
 
@@ -29,6 +30,8 @@ router.use("/replacements", replacementRoutes)
 
 // ruta de citas
 router.use("/appointments" , appointmentsRoutes)
+
+router.use("/user" , userRoutes)
 
 
 //ruta para whatsapp

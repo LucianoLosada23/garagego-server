@@ -1,8 +1,16 @@
-import { Table, Column, Model, DataType , Default, HasMany} from "sequelize-typescript";
+import { Table, Column, Model, DataType , Default, HasMany, BelongsTo, ForeignKey} from "sequelize-typescript";
 import Vehiculo from "./Vehicle.model";
+import User from "./User.model";
 
 @Table({ tableName: "client" })
 class Client extends Model {
+
+  @ForeignKey(() => User)
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  declare userId: number;
 
   @Column({
     type: DataType.STRING(100), // Para números grandes como CUIT
@@ -36,6 +44,9 @@ class Client extends Model {
     type : DataType.BOOLEAN,
   })
   declare isActive: boolean;
+
+  @BelongsTo(() => User)
+  declare user: User;
 
   @HasMany(() => Vehiculo)
   declare vehiculos: Vehiculo[];

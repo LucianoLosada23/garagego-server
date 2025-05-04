@@ -2,9 +2,18 @@ import { Table, Column, Model, DataType, ForeignKey, BelongsTo, HasMany } from "
 import Cliente from "./Client.model";
 import Servicio from "./Service.model";
 import Appointment from "./Appointments.model";
+import User from "./User.model";
 
 @Table({ tableName: "vehiculo" })
 class Vehiculo extends Model {
+  
+  @ForeignKey(() => User)
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  declare userId: number;
+
   @Column({
     type: DataType.STRING(50),
     allowNull: false,
@@ -50,6 +59,9 @@ class Vehiculo extends Model {
     allowNull: false,
   })
   declare clienteId: number;
+
+  @BelongsTo(() => User)
+  declare user: User;
 
   @BelongsTo(() => Cliente)
   declare cliente: Cliente;
