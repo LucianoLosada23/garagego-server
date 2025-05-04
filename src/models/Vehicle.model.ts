@@ -1,6 +1,7 @@
 import { Table, Column, Model, DataType, ForeignKey, BelongsTo, HasMany } from "sequelize-typescript";
 import Cliente from "./Client.model";
 import Servicio from "./Service.model";
+import Appointment from "./Appointments.model";
 
 @Table({ tableName: "vehiculo" })
 class Vehiculo extends Model {
@@ -55,6 +56,10 @@ class Vehiculo extends Model {
 
   @HasMany(() => Servicio)
   declare servicios: Servicio[];
+
+  // Relación con Appointment (Cita)
+  @HasMany(() => Appointment)
+  declare appointments: Appointment[];
 }
 
 export default Vehiculo;
